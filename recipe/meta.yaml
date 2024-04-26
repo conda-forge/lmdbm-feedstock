@@ -1,5 +1,5 @@
 {% set name = "lmdbm" %}
-{% set version = "0.0.5" %}
+{% set version = "0.0.6" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/lmdbm-{{ version }}.tar.gz
-  sha256: a4b6a2c0700d7d3e3c09f902c63a4fb3356662d171ce92bdde0803e02e25c859
+  sha256: 2c1d0dd995b074fe72154cc59c9221b348afccb237e2994aa0a463d6621a4db9
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -21,6 +21,8 @@ requirements:
     - wheel
     - pip
   run:
+    - lmdb
+    - typing-extensions >=4
     - python >=3.6
     - python-lmdb
 
